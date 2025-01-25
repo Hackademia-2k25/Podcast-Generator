@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Podcast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212; /* Dark grey background */
+            color: #e0e0e0; /* Light grey text */
+        }
+        nav {
+            background-color: #1c1c1c; /* Black navbar */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav h1 {
+            color: #ffffff; /* White text */
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffffff; /* White text */
+            font-size: 1rem;
+            background-color: #ff4d4d; /* Red button */
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        nav a:hover {
+            background-color: #e63939; /* Darker red hover */
+            transform: scale(1.05);
+        }
+        section {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #1c1c1c; /* Dark grey background for the form */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        section h1 {
+            font-size: 2rem;
+            color: #ff4d4d; /* Red heading */
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: #e0e0e0; /* Light grey for labels */
+        }
+        input, select {
+            padding: 0.7rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #555555; /* Dark grey border */
+            border-radius: 5px;
+            background-color: #2a2a2a; /* Dark grey input background */
+            color: #e0e0e0; /* Light grey text */
+        }
+        button {
+            background-color: #ff4d4d; /* Red button */
+            color: #ffffff; /* White text */
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background-color: #e63939; /* Darker red hover effect */
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #bdbdbd; /* Light grey text */
+            padding: 1rem 0;
+            background-color: #1c1c1c; /* Dark grey footer */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Podcast Generator</h1>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+    <section>
+        <h1>Generate Your Podcast</h1>
+        <form action="{{ url_for('generate_podcast') }}" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a Text File:</label>
+            <input type="file" id="file" name="file" accept=".txt" required>
+
+            <label for="language">Select Language:</label>
+            <select id="language" name="language" required>
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+            </select>
+
+            <label for="style">Podcast Style:</label>
+            <select id="style" name="style" required>
+                <option value="brief">Brief</option>
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+            </select>
+
+            <button type="submit">Generate Podcast</button>
+        </form>
+    </section>
+    <footer>
+        &copy; 2025 Podcast Generator. All rights reserved.
+    </footer>
+</body>
+</html>

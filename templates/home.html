@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Podcast Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.app.goo.gl/19pnNt2JmQvZhypx8') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Make the image cover the entire page */
+            color: #e0e0e0; /* Light grey text */
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(28, 28, 28, 0.9); /* Semi-transparent dark grey navbar */
+            color: #ffffff; /* White text */
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        nav a {
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.2s;
+        }
+        nav a:hover {
+            color: #ff4d4d; /* Red hover effect */
+            transform: translateY(-2px);
+        }
+        section {
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+            background: rgba(28, 28, 28, 0.8); /* Semi-transparent dark grey content background */
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+        }
+        section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff4d4d; /* Red for heading */
+        }
+        section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #bdbdbd; /* Light grey for descriptions */
+        }
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+        section a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff4d4d; /* Red button */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        section a:hover {
+            background: #e63939; /* Darker red hover effect */
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #bdbdbd; /* Light grey text */
+            font-size: 14px;
+            padding: 15px 0;
+            background-color: rgba(28, 28, 28, 0.9); /* Semi-transparent dark grey for footer */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="{{ url_for('index') }}">Generate Podcast</a>
+        </div>
+    </nav>
+    <section>
+        <h1>Welcome !</h1>
+        <img src="https://via.placeholder.com/800x400?text=Podcast+Background" alt="Hackamedia NINE">
+        <p>Create high-quality podcasts effortlessly with AI-powered tools designed for your creativity.</p>
+        <a href="{{ url_for('index') }}">Get Started</a>
+    </section>
+    <footer>
+        &copy; 2025 Hackamedia
+    </footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - Podcast Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212; /* Dark grey background */
+            color: #e0e0e0; /* Light grey text */
+        }
+        nav {
+            background-color: #1c1c1c; /* Black navbar */
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav h1 {
+            color: #ffffff; /* White text */
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffffff; /* White text */
+            font-size: 1rem;
+            background-color: #ff4d4d; /* Red button */
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        nav a:hover {
+            background-color: #e63939; /* Darker red hover */
+            transform: scale(1.05);
+        }
+        section {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #1c1c1c; /* Dark grey background for the section */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        section h1 {
+            font-size: 2rem;
+            color: #ff4d4d; /* Red heading */
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        audio {
+            display: block;
+            margin: 1rem auto;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #555555; /* Dark grey border for the audio player */
+            border-radius: 5px;
+            background: #2a2a2a; /* Darker grey background for audio player */
+        }
+        form {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        label {
+            font-size: 1rem;
+            color: #e0e0e0; /* Light grey for labels */
+        }
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.7rem;
+            font-size: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #555555; /* Dark grey border */
+            border-radius: 5px;
+            background-color: #2a2a2a; /* Dark grey background */
+            color: #e0e0e0; /* Light grey text */
+        }
+        button {
+            background-color: #ff4d4d; /* Red button */
+            color: #ffffff; /* White text */
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background-color: #e63939; /* Darker red hover */
+            transform: scale(1.05);
+        }
+        a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            text-decoration: none;
+            color: #ffffff; /* White text */
+            font-size: 1rem;
+            background-color: #333333; /* Dark grey button */
+            padding: 0.7rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        a:hover {
+            background-color: #555555; /* Medium grey hover */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Podcast Generator</h1>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+    <section>
+        <h1>Your Podcast is Ready!</h1>
+        <audio controls>
+            <source src="{{ podcast_file_url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <form method="POST">
+            <label for="feedback">Provide Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Your feedback..."></textarea><br>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <a href="{{ url_for('index') }}">Generate Another Podcast</a>
+    </section>
+</body>
+</html>
